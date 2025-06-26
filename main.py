@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+import os
 from get_home_id import get_home_id
 from get_power_consumption import get_power_consumption
 from make_graph import make_consumption_graph
@@ -134,8 +136,10 @@ def simulate_battery(
 
 if __name__ == "__main__":
 
+    load_dotenv()
+
     # -------------------------------------------------------------------
-    TIBBER_TOKEN = ""
+    TIBBER_TOKEN = os.getenv("TIBBER_TOKEN")
     charge_threshold = 0.15
     capacity = 1.6
     current_charge = 0
